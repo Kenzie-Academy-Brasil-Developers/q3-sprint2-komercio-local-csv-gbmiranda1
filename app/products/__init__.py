@@ -21,10 +21,10 @@ def delete(id):
     valor = {}
     writer.writerow({"id":"id", "name": "name", "price": "price"})
     for i in result:
-        if(i["id"] != id):
+        if(i["id"] != int(id)):
             writer.writerow(i)
             f.close()
-        elif (i["id"] == id):
+        elif (i["id"] == int(id)):
             bool = True
             valor = {"id": int(i["id"]), "name": i["name"], "price": float(i["price"])}
     return (bool, valor)

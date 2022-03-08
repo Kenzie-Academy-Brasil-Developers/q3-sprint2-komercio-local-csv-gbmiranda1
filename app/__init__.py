@@ -24,7 +24,7 @@ def getProductsId(id):
     for i in result:
         if(i["id"] == id):
             return jsonify({"id": int(i["id"]), "name": i["name"], "price": float(i["price"])}), 200
-    return jsonify({"error": "product id "+id+" not found"}), 404
+    return jsonify({"error": f"product id {id} not found"}), 404
 
 @app.post("/products")
 def postProducts():
@@ -53,5 +53,5 @@ def deleteProduct(id):
     result = delete(id)
     if result[0]:
         return result[1], 200
-    return {"error": "product id " + int(id) + " not found"}, 404
+    return {"error": f"product id {id} not found"}, 404
     
